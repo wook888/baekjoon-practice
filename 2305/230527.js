@@ -1,13 +1,15 @@
-let A = " ";
-let B = " ";
+const fs = require("fs");
+const inputData = fs
+  .readFileSync("/dev/stdin")
+  .toString()
+  .split(" ")
+  .map((val) => +val);
+const [a, b] = inputData;
 
-function comparison(A, B) {
-  if (A == B) {
-    document.write("==");
-  } else if (A > B) {
-    document.write(">");
-  } else {
-    document.write("<");
-  }
+if (a > b) {
+  console.log(">");
+} else if (a < b) {
+  console.log("<");
+} else {
+  console.log("==");
 }
-return comparison(1, 2);
