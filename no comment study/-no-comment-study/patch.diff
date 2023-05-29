@@ -1,0 +1,746 @@
+From 12b7da1964bf6a72bd4407942720256a1d656077 Mon Sep 17 00:00:00 2001
+From: wook888 <130480277+wook888@users.noreply.github.com>
+Date: Fri, 26 May 2023 21:18:31 +0900
+Subject: [PATCH] Initial commit
+
+---
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 README.md
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..994da68
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,2 @@
++# -no-comment-study
++elice 트랙 노마드코더 스터디
+-- 
+2.39.1
+
+From f02152f58e917f07a8a106f715adb6f80f705d88 Mon Sep 17 00:00:00 2001
+From: wook888 <guddnr888@gmail.com>
+Date: Fri, 26 May 2023 21:20:29 +0900
+Subject: [PATCH] test
+
+---
+ test.html | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test.html
+
+diff --git a/test.html b/test.html
+new file mode 100644
+index 0000000..b3ca210
+--- /dev/null
++++ b/test.html
+@@ -0,0 +1 @@
++<p>레파지토리가 잘 되나 테스트 해봄.</p>
+-- 
+2.39.1
+
+From f8ce6e3177491482f1e8063b4bb49ac592406235 Mon Sep 17 00:00:00 2001
+From: wook888 <guddnr888@gmail.com>
+Date: Sun, 28 May 2023 02:18:54 +0900
+Subject: [PATCH] =?UTF-8?q?=EC=96=B4=EB=96=BB=EA=B2=8C=EB=90=98=EB=8A=94?=
+ =?UTF-8?q?=EC=A7=80=EB=B3=B4=EB=A0=A4=EA=B3=A0=ED=95=A8?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ README.md | 2 ++
+ test.html | 1 +
+ 2 files changed, 3 insertions(+)
+ create mode 100644 README.md
+ create mode 100644 test.html
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..994da68
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,2 @@
++# -no-comment-study
++elice 트랙 노마드코더 스터디
+diff --git a/test.html b/test.html
+new file mode 100644
+index 0000000..b3ca210
+--- /dev/null
++++ b/test.html
+@@ -0,0 +1 @@
++<p>레파지토리가 잘 되나 테스트 해봄.</p>
+-- 
+2.39.1
+
+From 81ae09c05dfca6126bdf05503248e93f1c405865 Mon Sep 17 00:00:00 2001
+From: wook888 <guddnr888@gmail.com>
+Date: Mon, 29 May 2023 04:46:45 +0900
+Subject: [PATCH] 25%..
+
+---
+ counter/index.html            | 27 ++++++++++++
+ counter/vanilla.html          | 18 ++++++++
+ inputandState/milekm.html     | 56 +++++++++++++++++++++++++
+ inputandState/minutehour.html | 79 +++++++++++++++++++++++++++++++++++
+ 4 files changed, 180 insertions(+)
+ create mode 100644 counter/index.html
+ create mode 100644 counter/vanilla.html
+ create mode 100644 inputandState/milekm.html
+ create mode 100644 inputandState/minutehour.html
+
+diff --git a/counter/index.html b/counter/index.html
+new file mode 100644
+index 0000000..9476fc0
+--- /dev/null
++++ b/counter/index.html
+@@ -0,0 +1,27 @@
++<!DOCTYPE html>
++<html>
++  <body>
++    <div id="root"></div>
++  </body>
++  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
++  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
++  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
++  <script type="text/babel">
++    const root = document.getElementById("root");
++    let counter = 0;
++    function App() {
++      const [counter, setCounter] = React.useState(0);
++      const onClick = () => {
++        // setCounter(counter + 1);
++        setCounter((current) => current + 1);
++      };
++      return (
++        <div>
++          <h3>Total clicks: {counter}</h3>
++          <button onClick={onClick}>click me</button>
++        </div>
++      );
++    }
++    ReactDOM.render(<App />, root);
++  </script>
++</html>
+diff --git a/counter/vanilla.html b/counter/vanilla.html
+new file mode 100644
+index 0000000..86d1319
+--- /dev/null
++++ b/counter/vanilla.html
+@@ -0,0 +1,18 @@
++<!DOCTYPE html>
++<html>
++  <body>
++    <span>Total clicks : 0</span>
++    <button id="btn">Click me!</button>
++  </body>
++  <script>
++    let counter = 0;
++    const button = document.querySelector("#btn");
++    const span = document.querySelector("span");
++    function handleClick() {
++      counter = counter + 1;
++      span.innerText = `Total clicks : ${counter}`;
++      console.log("i have been clicked");
++    }
++    button.addEventListener("click", handleClick);
++  </script>
++</html>
+diff --git a/inputandState/milekm.html b/inputandState/milekm.html
+new file mode 100644
+index 0000000..72bafb8
+--- /dev/null
++++ b/inputandState/milekm.html
+@@ -0,0 +1,56 @@
++<!DOCTYPE html>
++<html>
++  <body>
++    <div id="root"></div>
++  </body>
++  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
++  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
++  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
++  <script type="text/babel">
++    function App() {
++      const [amount, setAmount] = React.useState(0);
++      const [inverted, setInverted] = React.useState(false);
++      const onChange = (event) => {
++        setAmount(event.target.value);
++      };
++      const reset = () => setAmount(0);
++      const onInvert = () => {
++        reset();
++        setInverted((current) => !current);
++      };
++      return (
++        <div>
++          <h1 className="hi">Super Converter</h1>
++          <div>
++            <label htmlFor="minutes">Minutes</label>
++            <input
++              value={inverted ? amount * 60 : amount}
++              id="minutes"
++              placeholder="Minutes"
++              type="number"
++              onChange={onChange}
++              disabled={inverted}
++            />
++          </div>
++          <div>
++            <label htmlFor="hours">Hours</label>
++            <input
++              value={inverted ? amount : Math.round(amount / 60)}
++              id="hours"
++              placeholder="Hours"
++              type="number"
++              disabled={!inverted}
++              onChanege={onChange}
++            />
++          </div>
++          <button onClick={reset}>Reset</button>
++          <button onClick={onInvert}>
++            {inverted ? "Turn back" : "Invert"}
++          </button>
++        </div>
++      );
++    }
++    const root = document.getElementById("root");
++    ReactDOM.render(<App />, root);
++  </script>
++</html>
+diff --git a/inputandState/minutehour.html b/inputandState/minutehour.html
+new file mode 100644
+index 0000000..ef80d4c
+--- /dev/null
++++ b/inputandState/minutehour.html
+@@ -0,0 +1,79 @@
++<!DOCTYPE html>
++<html>
++  <body>
++    <div id="root"></div>
++  </body>
++  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
++  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
++  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
++  <script type="text/babel">
++    function MinutesToHours() {
++      const [amount, setAmount] = React.useState(0);
++      const [inverted, setInverted] = React.useState(false);
++      const onChange = (event) => {
++        setAmount(event.target.value);
++      };
++      const reset = () => setAmount(0);
++      const onInvert = () => {
++        reset();
++        setInverted((current) => !current);
++      };
++      return (
++        <div>
++          <div>
++            <label htmlFor="minutes">Minutes</label>
++            <input
++              value={inverted ? amount * 60 : amount}
++              id="minutes"
++              placeholder="Minutes"
++              type="number"
++              onChange={onChange}
++              disabled={inverted}
++            />
++          </div>
++          <div>
++            <label htmlFor="hours">Hours</label>
++            <input
++              value={inverted ? amount : Math.round(amount / 60)}
++              id="hours"
++              placeholder="Hours"
++              type="number"
++              disabled={!inverted}
++              onChanege={onChange}
++            />
++          </div>
++          <button onClick={reset}>Reset</button>
++          <button onClick={onInvert}>
++            {inverted ? "Turn back" : "Invert"}
++          </button>
++        </div>
++      );
++    }
++    function KmToMiles() {
++      return <h3>KM 2 M</h3>;
++    }
++    function App() {
++      const [index, setIndex] = React.useState("xx");
++      const onSelect = (event) => {
++        setIndex(event.target.value);
++      };
++      console.log("render w/", index);
++      return (
++        <div>
++          <h1>Super Converter</h1>
++          <select value={index} onChange={onSelect}>
++            <option value="xx">Select your units</option>
++            <option value="0">Minutes & Hours</option>
++            <option value="1">Km & Miles</option>
++          </select>
++          <hr />
++          {index === "xx" ? "please select your units" : null}
++          {index === "0" ? <MinutesToHours /> : null}
++          {index === "1" ? <KmToMiles /> : null}
++        </div>
++      );
++    }
++    const root = document.getElementById("root");
++    ReactDOM.render(<App />, root);
++  </script>
++</html>
+-- 
+2.39.1
+
+From 9e460311c896ba2871c2c7f3ab05357455be2194 Mon Sep 17 00:00:00 2001
+From: wook888 <guddnr888@gmail.com>
+Date: Mon, 29 May 2023 04:54:01 +0900
+Subject: [PATCH] Revert "25%.."
+
+This reverts commit 81ae09c05dfca6126bdf05503248e93f1c405865.
+---
+ counter/index.html            | 27 ------------
+ counter/vanilla.html          | 18 --------
+ inputandState/milekm.html     | 56 -------------------------
+ inputandState/minutehour.html | 79 -----------------------------------
+ 4 files changed, 180 deletions(-)
+ delete mode 100644 counter/index.html
+ delete mode 100644 counter/vanilla.html
+ delete mode 100644 inputandState/milekm.html
+ delete mode 100644 inputandState/minutehour.html
+
+diff --git a/counter/index.html b/counter/index.html
+deleted file mode 100644
+index 9476fc0..0000000
+--- a/counter/index.html
++++ /dev/null
+@@ -1,27 +0,0 @@
+-<!DOCTYPE html>
+-<html>
+-  <body>
+-    <div id="root"></div>
+-  </body>
+-  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+-  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+-  <script type="text/babel">
+-    const root = document.getElementById("root");
+-    let counter = 0;
+-    function App() {
+-      const [counter, setCounter] = React.useState(0);
+-      const onClick = () => {
+-        // setCounter(counter + 1);
+-        setCounter((current) => current + 1);
+-      };
+-      return (
+-        <div>
+-          <h3>Total clicks: {counter}</h3>
+-          <button onClick={onClick}>click me</button>
+-        </div>
+-      );
+-    }
+-    ReactDOM.render(<App />, root);
+-  </script>
+-</html>
+diff --git a/counter/vanilla.html b/counter/vanilla.html
+deleted file mode 100644
+index 86d1319..0000000
+--- a/counter/vanilla.html
++++ /dev/null
+@@ -1,18 +0,0 @@
+-<!DOCTYPE html>
+-<html>
+-  <body>
+-    <span>Total clicks : 0</span>
+-    <button id="btn">Click me!</button>
+-  </body>
+-  <script>
+-    let counter = 0;
+-    const button = document.querySelector("#btn");
+-    const span = document.querySelector("span");
+-    function handleClick() {
+-      counter = counter + 1;
+-      span.innerText = `Total clicks : ${counter}`;
+-      console.log("i have been clicked");
+-    }
+-    button.addEventListener("click", handleClick);
+-  </script>
+-</html>
+diff --git a/inputandState/milekm.html b/inputandState/milekm.html
+deleted file mode 100644
+index 72bafb8..0000000
+--- a/inputandState/milekm.html
++++ /dev/null
+@@ -1,56 +0,0 @@
+-<!DOCTYPE html>
+-<html>
+-  <body>
+-    <div id="root"></div>
+-  </body>
+-  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+-  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+-  <script type="text/babel">
+-    function App() {
+-      const [amount, setAmount] = React.useState(0);
+-      const [inverted, setInverted] = React.useState(false);
+-      const onChange = (event) => {
+-        setAmount(event.target.value);
+-      };
+-      const reset = () => setAmount(0);
+-      const onInvert = () => {
+-        reset();
+-        setInverted((current) => !current);
+-      };
+-      return (
+-        <div>
+-          <h1 className="hi">Super Converter</h1>
+-          <div>
+-            <label htmlFor="minutes">Minutes</label>
+-            <input
+-              value={inverted ? amount * 60 : amount}
+-              id="minutes"
+-              placeholder="Minutes"
+-              type="number"
+-              onChange={onChange}
+-              disabled={inverted}
+-            />
+-          </div>
+-          <div>
+-            <label htmlFor="hours">Hours</label>
+-            <input
+-              value={inverted ? amount : Math.round(amount / 60)}
+-              id="hours"
+-              placeholder="Hours"
+-              type="number"
+-              disabled={!inverted}
+-              onChanege={onChange}
+-            />
+-          </div>
+-          <button onClick={reset}>Reset</button>
+-          <button onClick={onInvert}>
+-            {inverted ? "Turn back" : "Invert"}
+-          </button>
+-        </div>
+-      );
+-    }
+-    const root = document.getElementById("root");
+-    ReactDOM.render(<App />, root);
+-  </script>
+-</html>
+diff --git a/inputandState/minutehour.html b/inputandState/minutehour.html
+deleted file mode 100644
+index ef80d4c..0000000
+--- a/inputandState/minutehour.html
++++ /dev/null
+@@ -1,79 +0,0 @@
+-<!DOCTYPE html>
+-<html>
+-  <body>
+-    <div id="root"></div>
+-  </body>
+-  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+-  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+-  <script type="text/babel">
+-    function MinutesToHours() {
+-      const [amount, setAmount] = React.useState(0);
+-      const [inverted, setInverted] = React.useState(false);
+-      const onChange = (event) => {
+-        setAmount(event.target.value);
+-      };
+-      const reset = () => setAmount(0);
+-      const onInvert = () => {
+-        reset();
+-        setInverted((current) => !current);
+-      };
+-      return (
+-        <div>
+-          <div>
+-            <label htmlFor="minutes">Minutes</label>
+-            <input
+-              value={inverted ? amount * 60 : amount}
+-              id="minutes"
+-              placeholder="Minutes"
+-              type="number"
+-              onChange={onChange}
+-              disabled={inverted}
+-            />
+-          </div>
+-          <div>
+-            <label htmlFor="hours">Hours</label>
+-            <input
+-              value={inverted ? amount : Math.round(amount / 60)}
+-              id="hours"
+-              placeholder="Hours"
+-              type="number"
+-              disabled={!inverted}
+-              onChanege={onChange}
+-            />
+-          </div>
+-          <button onClick={reset}>Reset</button>
+-          <button onClick={onInvert}>
+-            {inverted ? "Turn back" : "Invert"}
+-          </button>
+-        </div>
+-      );
+-    }
+-    function KmToMiles() {
+-      return <h3>KM 2 M</h3>;
+-    }
+-    function App() {
+-      const [index, setIndex] = React.useState("xx");
+-      const onSelect = (event) => {
+-        setIndex(event.target.value);
+-      };
+-      console.log("render w/", index);
+-      return (
+-        <div>
+-          <h1>Super Converter</h1>
+-          <select value={index} onChange={onSelect}>
+-            <option value="xx">Select your units</option>
+-            <option value="0">Minutes & Hours</option>
+-            <option value="1">Km & Miles</option>
+-          </select>
+-          <hr />
+-          {index === "xx" ? "please select your units" : null}
+-          {index === "0" ? <MinutesToHours /> : null}
+-          {index === "1" ? <KmToMiles /> : null}
+-        </div>
+-      );
+-    }
+-    const root = document.getElementById("root");
+-    ReactDOM.render(<App />, root);
+-  </script>
+-</html>
+-- 
+2.39.1
+
+From d47529276ff5759eb56c38003f9e9c3e2d24ef6b Mon Sep 17 00:00:00 2001
+From: wook888 <guddnr888@gmail.com>
+Date: Mon, 29 May 2023 04:54:50 +0900
+Subject: [PATCH] Revert "Revert "25%..""
+
+This reverts commit 9e460311c896ba2871c2c7f3ab05357455be2194.
+---
+ counter/index.html            | 27 ++++++++++++
+ counter/vanilla.html          | 18 ++++++++
+ inputandState/milekm.html     | 56 +++++++++++++++++++++++++
+ inputandState/minutehour.html | 79 +++++++++++++++++++++++++++++++++++
+ 4 files changed, 180 insertions(+)
+ create mode 100644 counter/index.html
+ create mode 100644 counter/vanilla.html
+ create mode 100644 inputandState/milekm.html
+ create mode 100644 inputandState/minutehour.html
+
+diff --git a/counter/index.html b/counter/index.html
+new file mode 100644
+index 0000000..9476fc0
+--- /dev/null
++++ b/counter/index.html
+@@ -0,0 +1,27 @@
++<!DOCTYPE html>
++<html>
++  <body>
++    <div id="root"></div>
++  </body>
++  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
++  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
++  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
++  <script type="text/babel">
++    const root = document.getElementById("root");
++    let counter = 0;
++    function App() {
++      const [counter, setCounter] = React.useState(0);
++      const onClick = () => {
++        // setCounter(counter + 1);
++        setCounter((current) => current + 1);
++      };
++      return (
++        <div>
++          <h3>Total clicks: {counter}</h3>
++          <button onClick={onClick}>click me</button>
++        </div>
++      );
++    }
++    ReactDOM.render(<App />, root);
++  </script>
++</html>
+diff --git a/counter/vanilla.html b/counter/vanilla.html
+new file mode 100644
+index 0000000..86d1319
+--- /dev/null
++++ b/counter/vanilla.html
+@@ -0,0 +1,18 @@
++<!DOCTYPE html>
++<html>
++  <body>
++    <span>Total clicks : 0</span>
++    <button id="btn">Click me!</button>
++  </body>
++  <script>
++    let counter = 0;
++    const button = document.querySelector("#btn");
++    const span = document.querySelector("span");
++    function handleClick() {
++      counter = counter + 1;
++      span.innerText = `Total clicks : ${counter}`;
++      console.log("i have been clicked");
++    }
++    button.addEventListener("click", handleClick);
++  </script>
++</html>
+diff --git a/inputandState/milekm.html b/inputandState/milekm.html
+new file mode 100644
+index 0000000..72bafb8
+--- /dev/null
++++ b/inputandState/milekm.html
+@@ -0,0 +1,56 @@
++<!DOCTYPE html>
++<html>
++  <body>
++    <div id="root"></div>
++  </body>
++  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
++  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
++  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
++  <script type="text/babel">
++    function App() {
++      const [amount, setAmount] = React.useState(0);
++      const [inverted, setInverted] = React.useState(false);
++      const onChange = (event) => {
++        setAmount(event.target.value);
++      };
++      const reset = () => setAmount(0);
++      const onInvert = () => {
++        reset();
++        setInverted((current) => !current);
++      };
++      return (
++        <div>
++          <h1 className="hi">Super Converter</h1>
++          <div>
++            <label htmlFor="minutes">Minutes</label>
++            <input
++              value={inverted ? amount * 60 : amount}
++              id="minutes"
++              placeholder="Minutes"
++              type="number"
++              onChange={onChange}
++              disabled={inverted}
++            />
++          </div>
++          <div>
++            <label htmlFor="hours">Hours</label>
++            <input
++              value={inverted ? amount : Math.round(amount / 60)}
++              id="hours"
++              placeholder="Hours"
++              type="number"
++              disabled={!inverted}
++              onChanege={onChange}
++            />
++          </div>
++          <button onClick={reset}>Reset</button>
++          <button onClick={onInvert}>
++            {inverted ? "Turn back" : "Invert"}
++          </button>
++        </div>
++      );
++    }
++    const root = document.getElementById("root");
++    ReactDOM.render(<App />, root);
++  </script>
++</html>
+diff --git a/inputandState/minutehour.html b/inputandState/minutehour.html
+new file mode 100644
+index 0000000..ef80d4c
+--- /dev/null
++++ b/inputandState/minutehour.html
+@@ -0,0 +1,79 @@
++<!DOCTYPE html>
++<html>
++  <body>
++    <div id="root"></div>
++  </body>
++  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
++  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
++  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
++  <script type="text/babel">
++    function MinutesToHours() {
++      const [amount, setAmount] = React.useState(0);
++      const [inverted, setInverted] = React.useState(false);
++      const onChange = (event) => {
++        setAmount(event.target.value);
++      };
++      const reset = () => setAmount(0);
++      const onInvert = () => {
++        reset();
++        setInverted((current) => !current);
++      };
++      return (
++        <div>
++          <div>
++            <label htmlFor="minutes">Minutes</label>
++            <input
++              value={inverted ? amount * 60 : amount}
++              id="minutes"
++              placeholder="Minutes"
++              type="number"
++              onChange={onChange}
++              disabled={inverted}
++            />
++          </div>
++          <div>
++            <label htmlFor="hours">Hours</label>
++            <input
++              value={inverted ? amount : Math.round(amount / 60)}
++              id="hours"
++              placeholder="Hours"
++              type="number"
++              disabled={!inverted}
++              onChanege={onChange}
++            />
++          </div>
++          <button onClick={reset}>Reset</button>
++          <button onClick={onInvert}>
++            {inverted ? "Turn back" : "Invert"}
++          </button>
++        </div>
++      );
++    }
++    function KmToMiles() {
++      return <h3>KM 2 M</h3>;
++    }
++    function App() {
++      const [index, setIndex] = React.useState("xx");
++      const onSelect = (event) => {
++        setIndex(event.target.value);
++      };
++      console.log("render w/", index);
++      return (
++        <div>
++          <h1>Super Converter</h1>
++          <select value={index} onChange={onSelect}>
++            <option value="xx">Select your units</option>
++            <option value="0">Minutes & Hours</option>
++            <option value="1">Km & Miles</option>
++          </select>
++          <hr />
++          {index === "xx" ? "please select your units" : null}
++          {index === "0" ? <MinutesToHours /> : null}
++          {index === "1" ? <KmToMiles /> : null}
++        </div>
++      );
++    }
++    const root = document.getElementById("root");
++    ReactDOM.render(<App />, root);
++  </script>
++</html>
+-- 
+2.39.1
+
