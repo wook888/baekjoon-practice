@@ -9,4 +9,4 @@ function solution(price) {
   return Math.floor(price);
 }
 
-//math.floor로 최종 가격을 정수로 내림하여 반환
+//math.floor로 최종 가격을 정수로 내림하여 반환!!
