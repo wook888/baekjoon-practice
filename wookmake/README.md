@@ -1,5 +1,5 @@
 # wook
 
-'학원에서 배운것을 바탕으로 혼자 해보는 작업 공간'
+'이력서 작성해보기'
 
-
+<img scr="/Users/hw/Documents/resume/resume/1.png">
